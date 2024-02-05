@@ -10,5 +10,7 @@ $hilton = new Hotel("Hilton","****","10 route de la gare",67000,"Strasbourg");
 $chambreA = new Chambre(1,22.55);
 
 echo $hilton->getInfo();
-echo $chambreA->addRoom($this);
+//echo $chambreA->addRoom($this);
 echo "<br>".$chambre->getRooms();
+
+//je dois lier les class entre elle
