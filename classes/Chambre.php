@@ -69,13 +69,13 @@ class Chambre{
         return $this;
     }
 
-    public function addRoom(){
-      return $this->rooms [] = $room;
-    }
+//public function addRoom(){
+//  return $this->rooms [] = $room;
+//}
 
-    public function showRoom(){
-        $result = "chambre ".$this->rooms;
-        return $result;
-    }
+//public function showRoom(){
+////$result = "chambre ".$this->rooms;
+////return $result;
+//}
 
 }
