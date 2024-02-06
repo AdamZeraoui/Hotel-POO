@@ -16,6 +16,7 @@ class Hotel{
         $this->address =$address;
         $this->postalCode = $postalCode;
         $this->town = $town;
+
     }
 
 
@@ -65,8 +66,9 @@ class Hotel{
         return $this;
     }
 
-
     public function getInfo(){
         return "<h3>".$this->name." ".$this->star." ".$this->town."</h3> ".$this->address." ".$this->postalCode." ". $this->town;
     }
+
+
 }
