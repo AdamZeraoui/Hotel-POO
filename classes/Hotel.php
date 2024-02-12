@@ -8,11 +8,10 @@ class Hotel{
     private int $postalCode;
     private string $town;
     private array $chambres;
-    private int $chambreMax;
-    private int $freeChambre;
+
     
     
-    public function __construct(string $name, string $star, string $address,int $postalCode, string $town, int $chambreMax)
+    public function __construct(string $name, string $star, string $address,int $postalCode, string $town)
     {
         $this->name = $name;
         $this->star = $star;
@@ -20,8 +19,6 @@ class Hotel{
         $this->postalCode = $postalCode;
         $this->town = $town;
         $this->chambres = [];
-        $this->chambreMax = $chambreMax;
-        $this->freeChambre = 0;
     }
 
 
@@ -80,38 +77,15 @@ class Hotel{
         return $this;
     }
 
-    public function getChambreMax(): int {
-        return $this->chambreMax;
-    }
-
-
-    public function setChambreMax(int $chambreMax): self {
-        $this->chambreMax = $chambreMax;
-        return $this;
-    }
-
-    public function getFreeChambre(): int {
-        return $this->freeChambre;
-    }
-
-    public function setFreeChambre(int $freeChambre): self {
-        $this->freeChambre = $freeChambre;
-        return $this;
-    }
     
-    public function reservedChambres(Chambre $chambre){
+    public function countChambres(Chambre $chambre){
         return $this->chambres[] = $chambre;
-    }
-
-    public function freeChambres(){
-        return $this-> freeChambre = $this->chambreMax - count($this->chambres);
-
     }
 
 
     
     public function showInfo(){
-        return "<h3>".$this->name." ".$this->star." ".$this->town."</h3> ".$this->address." ".$this->postalCode." ". $this->town."<br> Nombre de chambres : ". $this->chambreMax."<br>Nombre de chambres réservées : ".count($this->chambres)." <br>Nombre de chambres libres : ". $this->freeChambres();
+        return "<h3>".$this->name." ".$this->star." ".$this->town."</h3> ".$this->address." ".$this->postalCode." ". $this->town."<br> Nombre de chambres : ".count($this->chambres)."  <br>Nombre de chambres libres : ";
     }
 
 

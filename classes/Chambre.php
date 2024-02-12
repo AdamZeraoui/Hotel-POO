@@ -8,16 +8,18 @@ class Chambre{
     private bool $wifi;
     private int $bed;
     private Hotel $hotel;
+    private array $reservs;
 
-    public function __construct(int $room, float $price, int $bed, Hotel $hotel)
+    public function __construct(int $room, float $price, int $bed, Hotel $hotel, bool $available, bool $wifi)
     {
         $this->room = $room;
         $this->price= $price;
-        $this->available = true;
-        $this->wifi = true;
+        $this->available = $available;
+        $this->wifi = $wifi;
         $this->bed = $bed;
         $this->hotel = $hotel;
-        $this->hotel -> reservedChambres($this);
+        $this->hotel -> countChambres($this);
+        $this->reservs = [];
     }
 
     public function getRoom(): int {
@@ -80,6 +82,49 @@ class Chambre{
     public function setBed(int $bed): self {
         $this->bed = $bed;
         return $this;
+    }
+
+    public function getReservs(): array {
+        return $this->reservs;
+    }
+
+
+    public function setReservs(array $reservs): self {
+        $this->reservs = $reservs;
+        return $this;
+    }
+
+    
+    public function connectedWifi($wifi){
+        if($wifi == true){
+            return "Chambre avec Wifi";
+        }else return "Chambre sans wifi";
+
+    }
+
+    public function availability($available){
+        if($available == true){
+            return "Chambre est disponible";
+        }else return "Chambre est indisponible" ;
+
+    }
+
+    public function countReservs(Reserv $reserv){
+        return $this->reservs[] = $reserv;
+    }
+
+    public function countAvailableChambre($hotel){
+        $result = count($hotel->getChambres()) - count($this->reservs);
+        return $result;
+    }
+    
+    public function __toString()
+    {
+        return "<br>".$this->connectedWifi($this->wifi)."<br>".$this->availability($this->available);
+    }
+
+    public function testVu(){
+        return" <br>Nombre de chambres réservées : ".count($this->reservs)."<br>".$this->countAvailableChambre($this->hotel->countChambres($this));
     }
 
 }

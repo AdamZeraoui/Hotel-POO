@@ -4,11 +4,12 @@ class Reserv{
 
     private Chambre $chambre;
     private DateTime $startReserv;
-    Private DateTime $endReserv;
+    private DateTime $endReserv;
 
 
     public function __construct(Chambre $chambre,string $startReserv, string $endReserv){
         $this->chambre = $chambre;
+        $this->chambre -> countReservs($this);
         $this->startReserv = new DateTime($startReserv);
         $this->endReserv = new DateTime($endReserv);
     }
@@ -41,5 +42,10 @@ class Reserv{
     public function setEndReserv(DateTime $endReserv): self {
         $this->endReserv = $endReserv;
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->startReserv->format("d/m/y")." au ".$this->endReserv->format("d/m/y");
     }
 }
