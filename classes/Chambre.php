@@ -6,15 +6,18 @@ class Chambre{
     private float $price;
     private bool $available;
     private bool $wifi;
-    private array $rooms; //a déplacer dans Hotel
+    private int $bed;
+    private Hotel $hotel;
 
-    public function __construct(int $room, float $price)
+    public function __construct(int $room, float $price, int $bed, Hotel $hotel)
     {
         $this->room = $room;
         $this->price= $price;
         $this->available = true;
         $this->wifi = true;
-        $this->rooms=[];
+        $this->bed = $bed;
+        $this->hotel = $hotel;
+        $this->hotel -> reservedChambres($this);
     }
 
     public function getRoom(): int {
@@ -59,23 +62,24 @@ class Chambre{
         return $this;
     }
 
-    public function getRooms(): array {
-        return $this->rooms;
+    public function getHotel(): Hotel {
+        return $this->hotel;
     }
 
-
-    public function setRooms(array $rooms): self {
-        $this->rooms = $rooms;
+    public function setHotel(Hotel $hotel): self {
+        $this->hotel = $hotel;
         return $this;
     }
 
-//public function addRoom(){
-//  return $this->rooms [] = $room;
-//}
 
-//public function showRoom(){
-////$result = "chambre ".$this->rooms;
-////return $result;
-//}
+    public function getBed(): int {
+        return $this->bed;
+    }
+
+
+    public function setBed(int $bed): self {
+        $this->bed = $bed;
+        return $this;
+    }
 
 }
