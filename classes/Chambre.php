@@ -113,18 +113,12 @@ class Chambre{
         return $this->reservs[] = $reserv;
     }
 
-    public function countAvailableChambre($hotel){
-        $result = count($hotel->getChambres()) - count($this->reservs);
-        return $result;
-    }
+
     
     public function __toString()
     {
         return "<br>".$this->connectedWifi($this->wifi)."<br>".$this->availability($this->available);
     }
 
-    public function testVu(){
-        return" <br>Nombre de chambres réservées : ".count($this->reservs)."<br>".$this->countAvailableChambre($this->hotel->countChambres($this));
-    }
 
 }

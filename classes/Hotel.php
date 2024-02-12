@@ -8,7 +8,7 @@ class Hotel{
     private int $postalCode;
     private string $town;
     private array $chambres;
-
+    private array $reservs;
     
     
     public function __construct(string $name, string $star, string $address,int $postalCode, string $town)
@@ -19,6 +19,7 @@ class Hotel{
         $this->postalCode = $postalCode;
         $this->town = $town;
         $this->chambres = [];
+        $this->reservs = [];
     }
 
 
@@ -76,7 +77,16 @@ class Hotel{
         $this->chambres = $chambres;
         return $this;
     }
+    
+    public function getReservs(): array {
+        return $this->reservs;
+    }
 
+
+    public function setReservs(array $reservs): self {
+        $this->reservs = $reservs;
+        return $this;
+    }
     
     public function countChambres(Chambre $chambre){
         return $this->chambres[] = $chambre;
@@ -87,6 +97,8 @@ class Hotel{
     public function showInfo(){
         return "<h3>".$this->name." ".$this->star." ".$this->town."</h3> ".$this->address." ".$this->postalCode." ". $this->town."<br> Nombre de chambres : ".count($this->chambres)."  <br>Nombre de chambres libres : ";
     }
+
+
 
 
 
