@@ -5,14 +5,15 @@ class Hotel{
     private string $name;
     private string $star;
     private string $address;
-    private int $postalCode;
+    private string $postalCode;
     private string $town;
     private array $chambres;
     private array $reservs;
-    private array $clients;
+    // private array $clients;
+
     
     
-    public function __construct(string $name, string $star, string $address,int $postalCode, string $town)
+    public function __construct(string $name, string $star, string $address,string $postalCode, string $town)
     {
         $this->name = $name;
         $this->star = $star;
@@ -21,7 +22,7 @@ class Hotel{
         $this->town = $town;
         $this->chambres = [];
         $this->reservs = [];
-        $this->clients=[];
+        // $this->clients = [];
     }
 
 
@@ -53,11 +54,11 @@ class Hotel{
         return $this;
     }
 
-    public function getPostalCode(): int {
+    public function getPostalCode(): string {
         return $this->postalCode;
     }
 
-    public function setPostalCode(int $postalCode): self {
+    public function setPostalCode(string $postalCode): self {
         $this->postalCode = $postalCode;
         return $this;
     }
@@ -90,14 +91,15 @@ class Hotel{
         return $this;
     }
 
-  //  public function getClient(): array {
-  //      return $this->clients;
-  //  }
+    // public function getClients(): array {
+    //     return $this->clients;
+    // }
 
-  //  public function setClient(array $clients): self {
-  //      $this->clients = $clients;
-  //      return $this;
-  //  }
+    // public function setClients(array $clients): self {
+    //     $this->clients = $clients;
+    //     return $this;
+    // }
+
     
     public function addChambres(Chambre $chambre){
         return $this->chambres[] = $chambre;
@@ -108,12 +110,26 @@ class Hotel{
  
     }
 
-   // public function addClients(Client $client){
-   //     return $this->clients[] = $client;
-   // }
+    //public function addClients(Client $client){
+    //    return $this->clients[] = $client;
+    //}
     
-    public function showInfo(){
-        return "<h3>".$this->name." ".$this->star." ".$this->town."</h3> ".$this->address." ".$this->postalCode." ". $this->town."<br><br> Nombre de chambres : ".count($this->getChambres($this))."  <br><br>Nombre de chambres libres :".count($this->getChambres($this))-count($this->getReservs($this))." <br><br>Nombre de chambre réserver : ".count($this->getReservs($this))."<br>";
+    public function __toString(){
+        return $this->name." ".$this->star." ".$this->town;
     }
+
+    public function showHotel(){
+        return $this->address." ".$this->postalCode." ". $this->town."<br><br> Nombre de chambres : ".count($this->getChambres($this))."  <br>Nombre de chambres libres :".count($this->getChambres($this))-count($this->getReservs($this))." <br>Nombre de chambre réserver : ".count($this->getReservs($this))."<br>";
+    }
+
+   // public function showReservs(){
+
+    //    foreach($this->getReservs() as $resa){
+
+    //        var_dump($resa);
+    //    }
+  
+        // return $this->getClients($this);
+    //}
 
 }
