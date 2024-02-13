@@ -9,8 +9,9 @@ class Chambre{
     private int $bed;
     private Hotel $hotel;
     private array $reservs;
+    private int $numberChambre;
 
-    public function __construct(int $room, float $price, int $bed, Hotel $hotel, bool $available, bool $wifi)
+    public function __construct(int $numberChambre,int $room, float $price, int $bed, Hotel $hotel, bool $available, bool $wifi)
     {
         $this->room = $room;
         $this->price= $price;
@@ -20,6 +21,7 @@ class Chambre{
         $this->hotel = $hotel;
         $this->hotel -> countChambres($this);
         $this->reservs = [];
+        $this->numberChambre = $numberChambre;
     }
 
     public function getRoom(): int {
@@ -94,18 +96,27 @@ class Chambre{
         return $this;
     }
 
+    public function getNumberChambre(): int {
+        return $this->numberChambre;
+    }
+
+    public function setNumberChambre(int $numberChambre): self {
+        $this->numberChambre = $numberChambre;
+        return $this;
+    }
+
     
     public function connectedWifi($wifi){
         if($wifi == true){
-            return "Chambre avec Wifi";
-        }else return "Chambre sans wifi";
+            return "chambre avec Wifi";
+        }else return "chambre sans Wifi";
 
     }
 
     public function availability($available){
         if($available == true){
-            return "Chambre est disponible";
-        }else return "Chambre est indisponible" ;
+            return "chambre est disponible";
+        }else return "chambre est indisponible" ;
 
     }
 
@@ -117,8 +128,7 @@ class Chambre{
     
     public function __toString()
     {
-        return "<br>".$this->connectedWifi($this->wifi)."<br>".$this->availability($this->available);
+        return "<br>Chambre ".$this->getNumberChambre().", ".$this->getBed()." lits, ".$this->connectedWifi($this->wifi).", la ".$this->availability($this->available);
     }
-
 
 }

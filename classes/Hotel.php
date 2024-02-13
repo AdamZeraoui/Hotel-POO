@@ -92,12 +92,13 @@ class Hotel{
         return $this->chambres[] = $chambre;
     }
 
-
+    public function countReservs(Reserv $reserv){
+        return $this->reservs[] = $reserv;
+    }
     
     public function showInfo(){
-        return "<h3>".$this->name." ".$this->star." ".$this->town."</h3> ".$this->address." ".$this->postalCode." ". $this->town."<br> Nombre de chambres : ".count($this->chambres)."  <br>Nombre de chambres libres : ";
+        return "<h3>".$this->name." ".$this->star." ".$this->town."</h3> ".$this->address." ".$this->postalCode." ". $this->town."<br> Nombre de chambres : ".count($this->getChambres($this))."  <br>Nombre de chambres libres : <br>Nombre de chambre réserver : ".count($this->getReservs($this));
     }
-
 
 
 
