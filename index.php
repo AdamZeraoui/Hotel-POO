@@ -11,21 +11,21 @@ $chambreA = new Chambre("42",22.55,3,true,$hilton,);
 $chambreB = new Chambre("12",2.14,2,'',$hilton,);
 $chambreC = new Chambre("25",60.30,6,'',$hilton);
 $chambreD = new Chambre("4",10,4,true,$hilton);
-
-
+$client1= new Client("Albus","Clara");
+$reservation = new Reserv($chambreA,$client1,"14-02-2024","15-02-2024");
 //une reservation (Chambre chambre, Client client, datedebut, datefin)
 
 
 
 echo "<h3>".$hilton->__toString()."</h3>";
 echo $hilton->showHotel();
-echo "<h4>Réservation de ".$hilton->__toString()."</h4>";//.$hilton->showReservs();
-
+echo "<h4>Réservation de ".$hilton->__toString()."</h4>".$client1->showReservs();
+//echo $reservation->__toString();
 
 //echo $chambreA->__toString();
 //echo $chambreB->__toString();
 //echo $chambreC->__toString();
 //echo $chambreD->__toString();
-//echo "<br><br>".$firstReservation->__toString();
+
 //echo "<br><br>".$secondReservation->__toString();
 //echo "<br><br>".$client1->__toString();

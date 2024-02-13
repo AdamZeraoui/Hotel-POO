@@ -122,14 +122,5 @@ class Hotel{
         return $this->address." ".$this->postalCode." ". $this->town."<br><br> Nombre de chambres : ".count($this->getChambres($this))."  <br>Nombre de chambres libres :".count($this->getChambres($this))-count($this->getReservs($this))." <br>Nombre de chambre réserver : ".count($this->getReservs($this))."<br>";
     }
 
-   // public function showReservs(){
-
-    //    foreach($this->getReservs() as $resa){
-
-    //        var_dump($resa);
-    //    }
-  
-        // return $this->getClients($this);
-    //}
 
 }

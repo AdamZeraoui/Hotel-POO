@@ -3,6 +3,7 @@
 class Reserv{
 
     private Chambre $chambre;
+    private Client $client;
     // private Hotel $hotel;
     private DateTime $startReserv;
     private DateTime $endReserv;
@@ -10,8 +11,9 @@ class Reserv{
     // private array $clients;
 
 
-    public function __construct(Chambre $chambre,string $startReserv, string $endReserv,Hotel $hotel, ){
+    public function __construct(Chambre $chambre,Client $client,string $startReserv, string $endReserv ){
         $this->chambre = $chambre;
+        $this->client= $client;
         $this->startReserv = new DateTime($startReserv);
         $this->endReserv = new DateTime($endReserv);
         // $this->hotel = $hotel;
@@ -52,7 +54,16 @@ class Reserv{
         return $this;
     }
 
-    // public function getChambres(): array {
+
+    public function getClient(): Client {
+        return $this->client;
+    }
+
+    public function setClient(Client $client): self {
+        $this->client = $client;
+        return $this;
+    }
+  // public function getChambres(): array {
     //     return $this->chambres;
     // }
 
@@ -83,8 +94,8 @@ class Reserv{
 
     public function __toString()
     {
-        return $this->chambre." du ".$this->startReserv->format("d/m/y")." au ".$this->endReserv->format("d/m/y");
+        return $this->client." - ".$this->chambre." - du ".$this->startReserv->format("d/m/y")." au ".$this->endReserv->format("d/m/y");
     }
 
-
 }
+  

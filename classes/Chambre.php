@@ -131,7 +131,8 @@ class Chambre{
     
     public function __toString()
     {
-        return "<br>Chambre ".$this->getNumberChambre().", ".$this->getBed()." lits, ".$this->connectedWifi($this->wifi).", la ".$this->availability($this->available);
+        return "Chambre ".$this->getNumberChambre();
     }
 
 }
+// .", ".$this->getBed()." lits, ".$this->connectedWifi($this->wifi).", la ".$this->availability($this->available)
