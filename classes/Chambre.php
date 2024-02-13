@@ -2,38 +2,28 @@
 
 class Chambre{
 
-    private int $room;
+    private int $numberChambre;
+
     private float $price;
     private bool $available;
     private bool $wifi;
     private int $bed;
     private Hotel $hotel;
     private array $reservs;
-    private int $numberChambre;
+   
 
-    public function __construct(int $numberChambre,int $room, float $price, int $bed, Hotel $hotel, bool $available, bool $wifi)
+    public function __construct(int $numberChambre, float $price, int $bed, bool $wifi, Hotel $hotel)
     {
-        $this->room = $room;
+
         $this->price= $price;
-        $this->available = $available;
+        $this->available = true;
         $this->wifi = $wifi;
         $this->bed = $bed;
         $this->hotel = $hotel;
-        $this->hotel -> countChambres($this);
+        $this->hotel -> addChambres($this);
         $this->reservs = [];
         $this->numberChambre = $numberChambre;
     }
-
-    public function getRoom(): int {
-        return $this->room;
-    }
-
-
-    public function setRoom(int $room): self {
-        $this->room = $room;
-        return $this;
-    }
-
 
     public function getPrice(): float {
         return $this->price;
@@ -116,12 +106,13 @@ class Chambre{
     public function availability($available){
         if($available == true){
             return "chambre est disponible";
-        }else return "chambre est indisponible" ;
+        }else return "chambre est réservée" ;
 
     }
 
-    public function countReservs(Reserv $reserv){
+    public function addReservs(Reserv $reserv){
         return $this->reservs[] = $reserv;
+    
     }
 
 

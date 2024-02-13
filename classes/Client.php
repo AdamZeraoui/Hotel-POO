@@ -5,11 +5,12 @@ class Client{
     private string $firstName;
     private string $lastName;
     private Reserv $reserv;
+    //private Hotel $hotel;
 
     public function __construct(string $firstName, string $lastName, Reserv $reserv){
-
         $this->firstName = $firstName;
         $this->lastName = $lastName;
+       // $this->hotel->addClients($this);
         $this->reserv =$reserv;
     }
 
@@ -42,5 +43,10 @@ class Client{
     public function setReserv(Reserv $reserv): self {
         $this->reserv = $reserv;
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getFirstName()." ". $this->getLastName();
     }
 }
