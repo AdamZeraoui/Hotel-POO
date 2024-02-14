@@ -17,7 +17,8 @@ class Reserv{
         $this->startReserv = new DateTime($startReserv);
         $this->endReserv = new DateTime($endReserv);
         // $this->hotel = $hotel;
-        // $this->hotel -> addReservs($this);
+        $this->client -> addReservs($this);
+        $chambre->getHotel() -> addReservs($this);
         $this->chambre->setAvailable(false);
         // $this->chambres = [];
         // $this->clients = [];
@@ -94,7 +95,7 @@ class Reserv{
 
     public function __toString()
     {
-        return $this->client." - ".$this->chambre." - du ".$this->startReserv->format("d/m/y")." au ".$this->endReserv->format("d/m/y");
+        return "<b>".$this->chambre->getHotel()."</b> - ".$this->chambre." - du ".$this->startReserv->format("d/m/y")." au ".$this->endReserv->format("d/m/y");
     }
 
 }

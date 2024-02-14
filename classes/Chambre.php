@@ -110,15 +110,19 @@ class Chambre{
     
     public function connectedWifi($wifi){
         if($wifi == true){
-            return "chambre avec Wifi";
-        }else return "chambre sans Wifi";
+            return "Wifi : oui";
+        }else {
+            return "Wifi : non";
+        }
 
     }
 
     public function availability($available){
         if($available == true){
             return "chambre est disponible";
-        }else return "chambre est réservée" ;
+        }else {
+            return "chambre est réservée" ;
+        }
 
     }
 
@@ -127,7 +131,9 @@ class Chambre{
     
     }
 
-
+    public function showStat(){
+        return " (". $this->getPrice()." € - ".$this->connectedWifi($this->wifi).") la ".$this->availability($this->available);
+    }
     
     public function __toString()
     {
@@ -135,4 +141,4 @@ class Chambre{
     }
 
 }
-// .", ".$this->getBed()." lits, ".$this->connectedWifi($this->wifi).", la ".$this->availability($this->available)
+// ", (".$this->getBed()." lits - ".

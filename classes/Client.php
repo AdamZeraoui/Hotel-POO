@@ -49,7 +49,8 @@ class Client{
     }
 
    public function addReservs(Reserv $reserv){
-        return $this->reservs[] = $reserv;
+        $this->reservs[] = $reserv;
+        return $this;
 
     }
 
@@ -74,12 +75,12 @@ class Client{
     // }
 
     public function showReservs(){
-
+        
         foreach($this->getReservs() as $resa){
- 
-            return var_dump($resa);
+            echo $this->__toString(). " - Chambre ".$resa->getChambre()->getNumberChambre()." du ".$resa->getStartReserv()->format("d/m/Y")." au ".$resa->getEndReserv()->format("d/m/Y")." <br>";
+            
         }
-     }
+    }
  
 
     public function __toString()
@@ -88,3 +89,4 @@ class Client{
     }
 
 }
+//." - ".$this->showReservs()
