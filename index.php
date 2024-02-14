@@ -57,7 +57,7 @@ foreach([$client1, $client2] as $client) {
     echo ($resaCount > 0 ? "$resaCount réservations<br>" : "Il n'y a pas de réservation<br>");
     
     foreach ($reservations as $reservation) {
-        echo $reservation->__toString() . "<br>";
+        echo $reservation->__toString();
     }
 }
 
@@ -67,9 +67,12 @@ foreach([$client1, $client2] as $client) {
 
 echo "<h3>Statuts des chambres de ".$hilton->__toString()."</h3>";
 echo  $chambreA->__toString().' '. $chambreA->showStat();
-echo "<br>".$chambreB->__toString() .' '. $chambreB->showStat();
-echo "<br>".$chambreC->__toString().' '. $chambreC->showStat();
+echo "<br>".$chambreB .' '. $chambreB->showStat();
+echo "<br>".$chambre.' '. $chambreC->showStat();
 echo "<br>".$chambreD->__toString().' '. $chambreD->showStat();
 
 //echo "<br><br>".$secondReservation->__toString();
 //echo "<br><br>".$client1->__toString();
+
+// $reservationAlbus->totalPrice();
+// echo "<br><br>".

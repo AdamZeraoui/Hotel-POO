@@ -92,10 +92,18 @@ class Reserv{
     //     $this->hotel = $hotel;
     //     return $this;
     // }
+    
+    // public function totalPrice(){
+
+    //     $allDays = $this->endReserv->diff($this->startReserv)->days;
+    //     return "<br><br> ".$allDays * $this->chambre->getPrice();
+    // }
+
+        
 
     public function __toString()
     {
-        return "<b>".$this->chambre->getHotel()."</b> - ".$this->chambre." - du ".$this->startReserv->format("d/m/y")." au ".$this->endReserv->format("d/m/y");
+        return "<b>".$this->chambre->getHotel()."</b> - ".$this->chambre." - du ".$this->startReserv->format("d/m/y")." au ".$this->endReserv->format("d/m/y")." <br><br>";
     }
 
 }

@@ -75,12 +75,31 @@ class Client{
     // }
 
     public function showReservs(){
-        
+
         foreach($this->getReservs() as $resa){
-            echo $this->__toString(). " - Chambre ".$resa->getChambre()->getNumberChambre()." du ".$resa->getStartReserv()->format("d/m/Y")." au ".$resa->getEndReserv()->format("d/m/Y")." <br>";
+            echo $this. " - Chambre ".$resa->getChambre()->getNumberChambre()." du ".$resa->getStartReserv()->format("d/m/Y")." au ".$resa->getEndReserv()->format("d/m/Y")." <br>";
             
         }
     }
+
+    // public function prixTotal()
+    // {
+    //     $total=0;
+    //     $prix=0;
+    //     $nbJours=0;
+    //     foreach($this->reservs as $resa){
+
+    //         //trouver le nombre de jours grace a diff()
+    //         //il faut recup le prix de la chambre
+    //         //et apres prix chambre * nbJours
+
+
+
+    //     }
+
+    //     return $total;
+
+    // }
  
 
     public function __toString()
